@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var name = ""
+    @State private var textTitle = "What is your name"
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("What is your name?")
+            TextField("", text: $name)
+                .multilineTextAlignment(.center)
+                .font(.title)
+                .border(Color.blue, width: 1)
+            Button("Submit Name") {
+            textTitle = "Welcome"
+            }
+            .font(.title2)
+            .buttonStyle(.borderedProminent)
         }
-        .padding()
-    }
+        }
 }
 
 struct ContentView_Previews: PreviewProvider {
